@@ -1,10 +1,6 @@
-# CodeceptJS Framework for the new premium payment flow
+# CodeceptJS Framework for UI automation testcases - https://www.saucedemo.com
 
-This is the implementation of 'Part D: Test Execution' of the QA Engineer Home assignment. This testing framework using codeceptjs with playwright for automatically testing phases 1-4 a,b,c until the user press "pay". 
-
-The persona created for this exercise has this credentials:
-- Email: `cabelchior@hotmail.com`
-- Password: `c@12345678`
+This testing framework using codeceptjs with playwright for automatically testing.
 
 ## Specifications
 - Node.js [v18.12.1]
@@ -48,13 +44,3 @@ To execute the functional tests run one of the the below command in root folder:
 | `npm run test:desktop:chrome:workers` | Run tests in parallel |
 
 > **_NOTE_:** In order to isolate a run for a specific test, we should add the @wip tag in that particular test scenario.
-
-## Challenges faced while working on the technical project
-- Lack of `data-testid` in the website DOM
-- Lack language consistency before and after the login phase
-- Lack language consistency when open the website in an incognito window
-
-These three points made choosing element locators harder.
-
-## Additional test scenarios
-- Web mobile version of the implemented test cases
