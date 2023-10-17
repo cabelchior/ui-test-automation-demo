@@ -7,7 +7,7 @@ on:
 
 jobs:
   codeceptjs-ts-test:
-    name: CodeceptJS Framework for UI Automation
+    name: CodeceptJS + Playwright
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -27,6 +27,7 @@ jobs:
         shell: bash
         working-directory: ./codeceptjs-ts-test
         run: npx playwright install-deps
+        run: npx playwright install
 
       - name: Test desktop:chrome
         shell: bash
