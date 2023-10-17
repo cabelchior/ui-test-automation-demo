@@ -26,7 +26,9 @@ jobs:
       #------
       - name: Get installed Playwright version
         # id: playwright-version
-        run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package-lock.json').dependencies['@playwright/test'].version)")" >> $GITHUB_ENV
+        run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package-lock.json').dependencies['playwright'].version)")" >> $GITHUB_ENV
+        with:
+          working-directory: ./codeceptjs-ts-test
 
       - name: Cache playwright binaries
         uses: actions/cache@v3
@@ -41,11 +43,13 @@ jobs:
         shell: bash
         working-directory: ./codeceptjs-ts-test
         run: npx playwright install
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
 
       - name: Install Playwright dependencies
         shell: bash
         working-directory: ./codeceptjs-ts-test
         run: npx playwright install-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
 
       - name: Test desktop:chrome
         shell: bash
