@@ -23,6 +23,20 @@ jobs:
         with:
           working-directory: ./codeceptjs-ts-test
 
+      #------
+      - name: Get installed Playwright version
+        # id: playwright-version
+        run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package-lock.json').dependencies['@playwright/test'].version)")" >> $GITHUB_ENV
+
+      - name: Cache playwright binaries
+        uses: actions/cache@v3
+        # id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
+      #------
+
       - name: Install Playwright
         shell: bash
         working-directory: ./codeceptjs-ts-test
