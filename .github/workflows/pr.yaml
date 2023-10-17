@@ -23,10 +23,15 @@ jobs:
         with:
           working-directory: ./codeceptjs-ts-test
 
+      - name: Install Playwright
+        shell: bash
+        working-directory: ./codeceptjs-ts-test
+        run: npx playwright install
+
       - name: Install Playwright dependencies
         shell: bash
         working-directory: ./codeceptjs-ts-test
-        run: npx playwright install-deps | npx playwright install
+        run: npx playwright install-deps
 
       - name: Test desktop:chrome
         shell: bash
