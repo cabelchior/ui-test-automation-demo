@@ -1,0 +1,34 @@
+name: Pull Request Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  codeceptjs-ts-test:
+    name: CodeceptJS Framework for UI Automation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+        with:
+          working-directory: ./codeceptjs-ts-test
+
+      - name: Install Playwright dependencies
+        shell: bash
+        working-directory: ./codeceptjs-ts-test
+        run: npx playwright install-deps
+
+      - name: Test desktop:chrome
+        shell: bash
+        working-directory: ./codeceptjs-ts-test
+        run: time npm run test:desktop:chrome:workers
