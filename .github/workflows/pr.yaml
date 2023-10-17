@@ -16,8 +16,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          working-directory: ./codeceptjs-ts-test
-          node-version-file: '.nvmrc'
+          node-version-file: './codeceptjs-ts-test/.nvmrc'
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
