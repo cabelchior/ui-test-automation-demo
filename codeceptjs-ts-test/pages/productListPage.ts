@@ -107,6 +107,14 @@ class ProductListPage {
   sortItemsBy(option: string) {
     I.selectOption(this.productListHeader.select, option);
   }
+
+  async grabItemNameAtIndex(index: number) {
+    return (await I.grabTextFrom(this.grabItemAtIndex(index).name)).toLowerCase()
+  }
+
+  async grabItemPriceAtIndex(index: number) {
+    return +((await I.grabTextFrom(this.grabItemAtIndex(index).price)).replace('$',''))
+  }
 }
 
 export = new ProductListPage();

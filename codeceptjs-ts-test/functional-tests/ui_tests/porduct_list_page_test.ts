@@ -14,33 +14,76 @@ Before(({ I, loginPage }) => {
   loginPage.logIn(credentials);
 });
 
-
 Scenario.todo('The PLP has all the requided sections @desktop', async ({ I, productListPage }) => {
   productListPage.isLoaded();
 });
 
-Scenario.todo("User sorts the PLP's products in alphabetical order @desktop", async ({ I, productListPage }) => {
+Scenario("User sorts the PLP's products in alphabetical order @desktop", async ({ I, productListPage }) => {
   productListPage.isLoaded();
   productListPage.sortItemsBy('Name (A to Z)');
-  pause()
+
+  const itemCount = await productListPage.grabNumberOfItems();
+
+  for (let i = 1; i < itemCount; i++) {
+    const itemName0 = await productListPage.grabItemNameAtIndex(i);
+    const itemName1 = await productListPage.grabItemNameAtIndex(i + 1);
+
+    const compare = itemName0 <= itemName1 ? true : false;
+    I.assertTrue(compare, `The products [${itemName0}] and [${itemName1}] are in alphabetical order`);
+  }
+
+  // pause()
 });
 
-Scenario.todo("User sorts the PLP's products in reverse alphabetical order @desktop", async ({ I, productListPage }) => {
+Scenario("User sorts the PLP's products in reverse alphabetical order @desktop", async ({ I, productListPage }) => {
   productListPage.isLoaded();
   productListPage.sortItemsBy('Name (Z to A)');
-  pause()
+
+  const itemCount = await productListPage.grabNumberOfItems();
+
+  for (let i = 1; i < itemCount; i++) {
+    const itemName0 = await productListPage.grabItemNameAtIndex(i);
+    const itemName1 = await productListPage.grabItemNameAtIndex(i + 1);
+
+    const compare = itemName0 >= itemName1 ? true : false;
+    I.assertTrue(compare, `The products [${itemName0}] and [${itemName1}] are in reverse alphabetical order`);
+  }
+
+  // pause()
 });
 
-Scenario("@wip User sorts the PLP's products by price in ascending order @desktop", async ({ I, productListPage }) => {
+Scenario("User sorts the PLP's products by price in ascending order @desktop", async ({ I, productListPage }) => {
   productListPage.isLoaded();
   productListPage.sortItemsBy('Price (low to high)');
-  pause()
+
+  const itemCount = await productListPage.grabNumberOfItems();
+
+  for (let i = 1; i < itemCount; i++) {
+    const itemPrice0 = await productListPage.grabItemPriceAtIndex(i);
+    const itemPrice1 = await productListPage.grabItemPriceAtIndex(i + 1);
+
+    const compare = itemPrice0 <= itemPrice1 ? true : false;
+    I.assertTrue(compare, `The prices [${itemPrice0}] and [${itemPrice1}] are in ascending order`);
+  }
+
+  // pause()
 });
 
-Scenario.todo("User sorts the PLP's products by price in descending order @desktop", async ({ I, productListPage }) => {
+Scenario("User sorts the PLP's products by price in descending order @desktop", async ({ I, productListPage }) => {
   productListPage.isLoaded();
   productListPage.sortItemsBy('Price (high to low)');
-  pause()
+
+  const itemCount = await productListPage.grabNumberOfItems();
+
+  for (let i = 1; i < itemCount; i++) {
+    const itemPrice0 = await productListPage.grabItemPriceAtIndex(i);
+    const itemPrice1 = await productListPage.grabItemPriceAtIndex(i + 1);
+
+    const compare = itemPrice0 >= itemPrice1 ? true : false;
+    I.assertTrue(compare, `The prices [${itemPrice0}] and [${itemPrice1}] are in descending order`);
+  }
+
+  // pause()
 });
 
 Scenario.todo('User adds/removes items from cart @desktop', async ({ I, productListPage }) => {
@@ -48,7 +91,6 @@ Scenario.todo('User adds/removes items from cart @desktop', async ({ I, productL
 });
 
 Scenario("Verify that each product's image link is not broken @desktop", async ({ I, productListPage }) => {
-
   productListPage.isLoaded();
 
   const itemCount = await productListPage.grabNumberOfItems();
@@ -57,14 +99,13 @@ Scenario("Verify that each product's image link is not broken @desktop", async (
     const item = productListPage.grabItemAtIndex(i);
     const imgSrc = await item.grabImageSrc();
 
-    const response = await I.sendGetRequest(imgSrc)
+    const response = await I.sendGetRequest(imgSrc);
     I.seeResponseCodeIs(200);
-    I.assertEqual(response.headers['content-type'],'image/jpeg')
+    I.assertEqual(response.headers['content-type'], 'image/jpeg');
   }
 
   // pause()
 });
-
 
 /**
  * Test to ensure that the PLP product link properly redirects to the associated PDP.
