@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:desktop:chrome:wip": "SHOW=true ENV=PROD npx codeceptjs run --tests --steps -c codecept.conf.ts --grep '(?=.*@wip)(?=.*@desktop)' --profile 'browser:chromium|emulate:Desktop Chrome' --debug",
+    "test:desktop:chrome:wip": "SHOW=true ENV=PROD npx codeceptjs run --tests --steps -c codecept.conf.ts --grep '(?=.*@wip)(?=.*@desktop)' --profile 'browser:chromium|emulate:Desktop Chrome' --steps",
     "test:desktop:chrome": "SHOW=true ENV=PROD npx codeceptjs run --tests --steps -c codecept.conf.ts --grep '(?=.*@desktop)' --profile 'browser:chromium|emulate:Desktop Chrome'",
     "test:desktop:safari": "SHOW=false ENV=PROD npx codeceptjs run --tests -c codecept.conf.ts --grep '(?=.*@desktop)' --profile 'browser:webkit|emulate:Desktop Safari'",
     "test:desktop:chrome:workers": "ENV=PROD npx codeceptjs run-workers 2 -c codecept.conf.ts --grep '(?=.*@desktop)' --profile 'browser:chromium|emulate:Desktop Chrome'"

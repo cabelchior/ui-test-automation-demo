@@ -12,7 +12,14 @@ export const config: CodeceptJS.MainConfig = {
       show: showBrowser,
       url: baseUrl,
       waitForAction: 500,
+      restart: 'keep',         // in windowed mode.
+      keepBrowserState: false, // in windowed mode.
+      keepCookies: false,      // in windowed mode.
     },
+    REST: {
+      endpoint: baseUrl
+    },
+    JSONResponse: { },
     ChaiWrapper: {
       require: 'codeceptjs-chai',
     },

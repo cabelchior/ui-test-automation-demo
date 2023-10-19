@@ -1,7 +1,6 @@
 Feature('UI automation testcases - login page of saucedemo.com'); //, { retryBefore: 2 });
 
 /*** Feature Global Variables ***/
-// https://www.saucedemo.com
 
 const invalidUsername = new DataTable(['username', 'errorMessage']);
 invalidUsername.add(['', 'Epic sadface: Username is required']);

@@ -15,7 +15,7 @@ declare namespace CodeceptJS {
     productListPage: ProductListPage;
   }
 
-  interface Methods extends Playwright, ChaiWrapper, CustomHelper {}
+  interface Methods extends Playwright, JSONResponse, REST, ChaiWrapper, CustomHelper {}
 
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
   interface I extends WithTranslation<Methods> {}
