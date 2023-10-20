@@ -7,6 +7,7 @@ class InventoryItem {
   #description: CodeceptJS.Locator;
   #price: CodeceptJS.Locator;
   #addToCartButton: CodeceptJS.Locator;
+  #removeFromCartButton: CodeceptJS.Locator;
 
   constructor(locator: CodeceptJS.Locator) {
     this.#root = locator;
@@ -15,6 +16,7 @@ class InventoryItem {
     this.#description = this.#root.find('div.inventory_item_desc');
     this.#price = this.#root.find('div.inventory_item_price');
     this.#addToCartButton = this.#root.find('button').withText('Add to cart');
+    this.#removeFromCartButton = this.#root.find('button').withText('Remove');
   }
 
   get root() {
@@ -41,8 +43,20 @@ class InventoryItem {
     return this.#addToCartButton;
   }
 
+  get removeFromCartButton() {
+    return this.#removeFromCartButton;
+  }
+
   async grabImageSrc() {
     return await I.grabAttributeFrom(this.image, 'src');
+  }
+
+  waitForRequiredElements() {
+    I.waitForVisible(this.name);
+    I.waitForVisible(this.image);
+    I.waitForVisible(this.description);
+    I.waitForVisible(this.price);
+    I.waitForVisible(this.addToCartButton);
   }
 }
 
@@ -114,6 +128,14 @@ class ProductListPage {
 
   async grabItemPriceAtIndex(index: number) {
     return +((await I.grabTextFrom(this.grabItemAtIndex(index).price)).replace('$',''))
+  }
+
+  clickAddToCartAtIndex(index: number) {
+    I.click(this.grabItemAtIndex(index).addToCartButton);
+  }
+
+  clickRemoveFromCartAtIndex(index: number) {
+    I.click(this.grabItemAtIndex(index).removeFromCartButton);
   }
 }
 
