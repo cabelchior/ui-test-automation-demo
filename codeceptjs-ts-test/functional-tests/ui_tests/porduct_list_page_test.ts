@@ -96,7 +96,7 @@ Scenario("User sorts the PLP's products by price in descending order @desktop", 
   // pause()
 });
 
-Scenario('@wip User adds/removes items from cart @desktop', async ({ I, headerPage, productListPage }) => {
+Scenario('User adds/removes items from cart @desktop', async ({ I, headerPage, productListPage }) => {
   headerPage.isLoaded();
   productListPage.isLoaded();
 
