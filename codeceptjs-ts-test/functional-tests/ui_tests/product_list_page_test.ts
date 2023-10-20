@@ -130,7 +130,10 @@ Scenario("Verify that each product's image link is not broken @desktop", async (
   // pause()
 });
 
-/**
- * Test to ensure that the PLP product link properly redirects to the associated PDP.
- * Check that the PLP prices match the PDP prices.
- */
+Scenario.todo("Verify that each product link properly redirects to its associated PDP @desktop", async ({ I }) => {
+  pause();
+});
+
+Scenario.todo("Verify that each product's PLP price matches its PDP price @desktop", async ({ I }) => {
+  pause();
+});
