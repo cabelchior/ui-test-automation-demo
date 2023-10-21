@@ -1,6 +1,6 @@
 # CodeceptJS Framework for UI automation testcases - https://www.saucedemo.com
 
-This testing framework using codeceptjs with playwright for automatically testing.
+In this project, I'll walk you through a sample project that demonstrates how to perform UI automation testing on Saucedemo - a sample website built by [SauceLabs®](https://saucelabs.com/) - using the CodeceptJS framework with Playwright helper.
 
 ## Specifications
 - Node.js [v18.12.1]
@@ -11,8 +11,8 @@ This testing framework using codeceptjs with playwright for automatically testin
 ## Get Started
 
 - Install VS Code, Node.js and NVM
-- Extract the .zip file into a given foder
-- From within the extracted folder, run the following commands to install the dependencies:
+- Clone the project into a given foder
+- From within the project folder, run the following commands to install the dependencies:
 
 ```sh
  nvm use

@@ -118,6 +118,10 @@ class ProductListPage {
     I.click(this.items.withDescendant('div.inventory_item_name').withText(title));
   }
 
+  clickItemAtIndex(index: number) {
+    I.click(this.grabItemAtIndex(index).name);
+  }
+
   sortItemsBy(option: string) {
     I.selectOption(this.productListHeader.select, option);
   }
@@ -137,6 +141,7 @@ class ProductListPage {
   clickRemoveFromCartAtIndex(index: number) {
     I.click(this.grabItemAtIndex(index).removeFromCartButton);
   }
+
 }
 
 export = new ProductListPage();

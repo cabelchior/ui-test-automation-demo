@@ -13,4 +13,16 @@ Join me on this exciting journey of testing excellence. Let's create bug-free, u
 | Test framework          | Description |
 |---                      |---          |
 | CodeceptJS + Playwright | The benefits of CodeceptJS include simplified test automation, support for multiple testing libraries, and an easy-to-read, human-friendly syntax, making it a valuable tool for quality assurance engineers and software developers in test. Playwright is a robust automation framework designed for web testing and browser automation, highly appreciated by quality assurance engineers and software developers in test for its cross-browser support and rich feature set. |
-| ... | ... |
+| Playwright | ... |
+| ROBOT Framework | ... |
+
+## Contributing
+
+Your contributions and enhancements to this example project are welcome. If you have any feedback or ideas, please don't hesitate to reach out.
+
+## Credits
+
+- [Carlos Belchior](https://github.com/cabelchior) (Owner of this repo)
+
+## References
+- [Paul Varoutsos](https://github.com/PaulVaroutsos/SauceDemo-Automation)

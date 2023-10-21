@@ -32,6 +32,11 @@ export const config: CodeceptJS.MainConfig = {
     loginPage: './pages/loginPage.ts',
     headerPage: './pages/headerPage.ts',
     productListPage: './pages/productListPage.ts',
+    productDetailPage: './pages/productDetailPage.ts',
+    cartPage: './pages/cartPage.ts',
+    checkoutPage: './pages/checkoutPage.ts',
+    checkoutOverviewPage: './pages/checkoutOverviewPage.ts',
+    checkoutCompletePage: './pages/checkoutCompletePage.ts',
   },
   name: 'codeceptjs-ts-test',
   plugins: {
