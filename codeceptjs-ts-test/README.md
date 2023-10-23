@@ -1,6 +1,6 @@
 # CodeceptJS Framework for UI automation testcases - https://www.saucedemo.com
 
-In this project, I'll walk you through a sample project that demonstrates how to perform UI automation testing on Saucedemo - a sample website built by [SauceLabs®](https://saucelabs.com/) - using the CodeceptJS framework with Playwright helper.
+In this project, I'll walk you through a sample project that demonstrates how to perform UI automation testing on Saucedemo - a sample website built by [SauceLabs®](https://saucelabs.com/) - using the [CodeceptJS framework](https://codecept.io/) with [Playwright helper](https://codecept.io/playwright/).
 
 ## Specifications
 - Node.js [v18.12.1]
