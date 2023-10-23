@@ -1,4 +1,4 @@
-Feature('UI automation testcases - login page of saucedemo.com'); //, { retryBefore: 2 });
+Feature('@wip UI automation testcases - login page of saucedemo.com'); //, { retryBefore: 2 });
 
 /*** Feature Global Variables ***/
 
@@ -12,7 +12,7 @@ invalidUsername.add([
 
 const invalidPassword = new DataTable(['password', 'errorMessage']);
 invalidPassword.add(['', 'Epic sadface: Password is required']);
-invalidPassword.add(['invalid_user', 'Epic sadface: Username and password do not match any user in this service']);
+invalidPassword.add(['invalid_pass', 'Epic sadface: Username and password do not match any user in this service']);
 invalidPassword.add([
   "'); DROP TABLE *;--",
   'Epic sadface: Username and password do not match any user in this service',
