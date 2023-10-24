@@ -6,6 +6,48 @@ on:
       - main
 
 jobs:
+  playwright-ts-test:
+    name: Playwright
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: './playwright-test/.nvmrc'
+
+      - name: Install dependencies
+        uses: bahmutov/npm-install@v1
+        with:
+          working-directory: ./playwright-test
+
+      - name: Cache playwright binaries
+        uses: actions/cache@v3
+        id: playwright-cache-1
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install Playwright
+        shell: bash
+        working-directory: ./playwright-test
+        run: npx playwright install
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+      - name: Install Playwright dependencies
+        shell: bash
+        working-directory: ./playwright-test
+        run: npx playwright install-deps
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+      - name: Test desktop:chrome
+        shell: bash
+        working-directory: ./playwright-test
+        run: time npm run test:desktop:chrome:workers
+
   codeceptjs-ts-test:
     name: CodeceptJS + Playwright
     runs-on: ubuntu-latest
@@ -25,7 +67,7 @@ jobs:
 
       - name: Cache playwright binaries
         uses: actions/cache@v3
-        id: playwright-cache
+        id: playwright-cache-2
         with:
           path: |
             ~/.cache/ms-playwright
