@@ -46,7 +46,7 @@ jobs:
       - name: Test desktop:chrome
         shell: bash
         working-directory: ./playwright-test
-        run: time npm run test:desktop:chrome:workers
+        run: time npm run test:desktop:chrome
 
   codeceptjs-ts-test:
     name: CodeceptJS + Playwright
