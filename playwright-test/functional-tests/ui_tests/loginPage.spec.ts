@@ -36,13 +36,16 @@ const invalidPassword = [
 /*** Test Cases ***/
 
 test.describe('Login Page', () => {
+  test.beforeEach(async ({ page, loginPage }) => {
+    await loginPage.goTo()
+  })
+
   test('The user logs in with a valid username/password', async ({ page, loginPage }) => {
     let credentials: Credentials = {
       username: 'standard_user',
       password: 'secret_sauce',
     }
 
-    await page.goto('/')
     await loginPage.logIn(credentials)
 
     await expect(loginPage.errorMessage, { message: 'There is no visible error message after the login procedure' }).not.toBeVisible()
@@ -56,7 +59,6 @@ test.describe('Login Page', () => {
       password: 'secret_sauce',
     }
 
-    await page.goto('/')
     await loginPage.logIn(credentials)
 
     await expect(loginPage.errorMessage, { message: 'There is an error message after the login procedure' }).toBeVisible()
@@ -72,7 +74,6 @@ test.describe('Login Page', () => {
         password: 'secret_sauce',
       }
 
-      await page.goto('/')
       await loginPage.logIn(credentials)
 
       await expect(loginPage.errorMessage, { message: 'There is an error message after the login procedure' }).toBeVisible()
@@ -89,7 +90,6 @@ test.describe('Login Page', () => {
         password: data.password,
       }
 
-      await page.goto('/')
       await loginPage.logIn(credentials)
 
       await expect(loginPage.errorMessage, { message: 'There is an error message after the login procedure' }).toBeVisible()
