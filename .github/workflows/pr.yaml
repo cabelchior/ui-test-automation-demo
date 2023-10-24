@@ -35,13 +35,13 @@ jobs:
         shell: bash
         working-directory: ./playwright-test
         run: npx playwright install
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        if: steps.playwright-cache-1.outputs.cache-hit != 'true'
 
       - name: Install Playwright dependencies
         shell: bash
         working-directory: ./playwright-test
         run: npx playwright install-deps
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        if: steps.playwright-cache-1.outputs.cache-hit != 'true'
 
       - name: Test desktop:chrome
         shell: bash
@@ -77,13 +77,13 @@ jobs:
         shell: bash
         working-directory: ./codeceptjs-ts-test
         run: npx playwright install
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        if: steps.playwright-cache-2.outputs.cache-hit != 'true'
 
       - name: Install Playwright dependencies
         shell: bash
         working-directory: ./codeceptjs-ts-test
         run: npx playwright install-deps
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        if: steps.playwright-cache-2.outputs.cache-hit != 'true'
 
       - name: Test desktop:chrome
         shell: bash

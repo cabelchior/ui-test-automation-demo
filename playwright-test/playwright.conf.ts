@@ -11,15 +11,15 @@ const config: PlaywrightTestConfig = {
   expect: {
     timeout: 5000
   },
-  fullyParallel: false,
+  fullyParallel: process.env.CI ? true : false,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: 1,//process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? undefined : 1,
   reporter: 'list',//'html',
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    headless: !showBrowser,
+    headless: process.env.CI ? true : false,
     ignoreHTTPSErrors: true,
     actionTimeout: 0,
     baseURL: baseUrl,
