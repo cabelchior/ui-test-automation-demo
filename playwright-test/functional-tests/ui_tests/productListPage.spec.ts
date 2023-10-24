@@ -5,7 +5,7 @@ import { test } from '../../helpers/fixtures'
 
 /*** Test Cases ***/
 
-test.describe.only('Product List Page', () => {
+test.describe('Product List Page', () => {
   test('The PLP has all the requided sections', async ({ page, productListPage }) => {
     await productListPage.clickItemAtIndex(1)
 
