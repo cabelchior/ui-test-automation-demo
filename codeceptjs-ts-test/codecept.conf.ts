@@ -11,7 +11,7 @@ export const config: CodeceptJS.MainConfig = {
       emulate: devices[setEmulator],
       show: showBrowser,
       url: baseUrl,
-      waitForAction: 500,
+      // waitForAction: 500,
       restart: 'keep',         // in windowed mode.
       keepBrowserState: false, // in windowed mode.
       keepCookies: false,      // in windowed mode.
@@ -40,10 +40,10 @@ export const config: CodeceptJS.MainConfig = {
   },
   name: 'codeceptjs-ts-test',
   plugins: {
-    autoDelay: {
-      enabled: true,
-      delayAfter: 500,
-    },
+    // autoDelay: {
+    //   enabled: true,
+    //   delayAfter: 500,
+    // },
     tryTo: {
       enabled: true,
     },

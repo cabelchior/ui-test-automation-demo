@@ -1,0 +1,26 @@
+{
+  "name": "playwright-ts-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:desktop:chrome:wip": "SHOW=true ENV=PROD npx playwright test -g '@wip' --config=playwright.conf.ts --project=chromium",
+    "test:desktop:chrome": "SHOW=true ENV=PROD npx playwright test --config=playwright.conf.ts --project=chromium",
+    "test:desktop:chrome:workers": "CI=true ENV=PROD npx playwright test --config=playwright.conf.ts --project=chromium"
+  },
+  "author": "Carlos Belchior",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/test": "^1.39.0",
+    "prettier": "^3.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=18",
+    "npm": ">=8"
+  }
+}
