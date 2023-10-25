@@ -22,7 +22,7 @@ Scenario('The PLP has all the requided sections @desktop', async ({ I, productLi
   const itemCount = await productListPage.grabNumberOfItems();
   for (let i = 1; i < itemCount; i++) {
     const item = productListPage.grabItemAtIndex(i);
-    item.waitForRequiredElements();
+    item.seeAllRequiredElements();
   }
 
   // pause()
@@ -128,12 +128,4 @@ Scenario("Verify that each product's image link is not broken @desktop", async (
   }
 
   // pause()
-});
-
-Scenario.todo("Verify that each product link properly redirects to its associated PDP @desktop", async ({ I }) => {
-  pause();
-});
-
-Scenario.todo("Verify that each product's PLP price matches its PDP price @desktop", async ({ I }) => {
-  pause();
 });

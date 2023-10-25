@@ -25,4 +25,3 @@ Scenario.todo('User adds/removes items from cart @desktop', async ({ I }) => {
 Scenario.todo('User navigates back to PLP @desktop', async ({ I }) => {
   pause();
 });
-

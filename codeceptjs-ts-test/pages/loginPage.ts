@@ -2,37 +2,17 @@ const I = actor();
 const tryTo = codeceptjs.container.plugins('tryTo');
 
 class LoginPage {
-  #root: CodeceptJS.Locator = locate('div.login_container');
-  #usernameInput: CodeceptJS.Locator;
-  #passwordInput: CodeceptJS.Locator;
-  #submitInput: CodeceptJS.Locator;
-  #errorMessage: CodeceptJS.Locator;
+  readonly #root: CodeceptJS.Locator = locate('div.login_container');
+  readonly usernameInput: CodeceptJS.Locator;
+  readonly passwordInput: CodeceptJS.Locator;
+  readonly submitInput: CodeceptJS.Locator;
+  readonly errorMessage: CodeceptJS.Locator;
 
   constructor() { 
-    this.#usernameInput = this.#root.find('input').withAttr({ placeholder: 'Username' });
-    this.#passwordInput = this.#root.find('input').withAttr({ placeholder: 'Password' });
-    this.#submitInput = this.#root.find('input').withAttr({ value: 'Login' });
-    this.#errorMessage = this.#root.find('h3').withChild('button.error-button');
-  }
-
-  get root() {
-    return this.#root;
-  }
-
-  get usernameInput() {
-    return this.#usernameInput;
-  }
-
-  get passwordInput() {
-    return this.#passwordInput;
-  }
-
-  get submitInput() {
-    return this.#submitInput;
-  }
-
-  get errorMessage() {
-    return this.#errorMessage;
+    this.usernameInput = this.#root.find('input').withAttr({ placeholder: 'Username' });
+    this.passwordInput = this.#root.find('input').withAttr({ placeholder: 'Password' });
+    this.submitInput = this.#root.find('input').withAttr({ value: 'Login' });
+    this.errorMessage = this.#root.find('h3').withChild('button.error-button');
   }
 
   goTo() {
