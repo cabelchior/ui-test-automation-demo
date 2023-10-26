@@ -1,4 +1,4 @@
-import { InventoryItem } from './fragments/inventoryItem'
+import { InventoryItem } from './fragments/inventoryItem';
 
 const I = actor();
 
@@ -49,11 +49,11 @@ class ProductListPage {
   }
 
   async grabItemNameAtIndex(index: number) {
-    return (await I.grabTextFrom(this.grabItemAtIndex(index).name)).toLowerCase()
+    return (await I.grabTextFrom(this.grabItemAtIndex(index).name)).toLowerCase();
   }
 
   async grabItemPriceAtIndex(index: number) {
-    return +((await I.grabTextFrom(this.grabItemAtIndex(index).price)).replace('$',''))
+    return +(await I.grabTextFrom(this.grabItemAtIndex(index).price)).replace('$', '');
   }
 
   clickAddToCartAtIndex(index: number) {
@@ -64,6 +64,18 @@ class ProductListPage {
     I.click(this.grabItemAtIndex(index).removeFromCartButton);
   }
 
+  async grabProductInfoAtIndex(index: number) {
+    const item = this.grabItemAtIndex(index);
+
+    let productInfo: ProductInfo = {
+      name: await I.grabTextFrom(item.name),
+      imageSrc: await item.grabImageSrc(),
+      description: await I.grabTextFrom(item.description),
+      price: await I.grabTextFrom(item.price),
+    };
+
+    return productInfo;
+  }
 }
 
 export = new ProductListPage();

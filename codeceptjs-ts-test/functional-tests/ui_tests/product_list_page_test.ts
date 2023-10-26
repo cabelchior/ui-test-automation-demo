@@ -1,4 +1,4 @@
-Feature('UI automation testcases - product listing page of saucedemo.com'); //, { retryBefore: 2 });
+Feature('Product listing page'); //, { retryBefore: 2 });
 
 /*** Feature Global Variables ***/
 
@@ -96,7 +96,7 @@ Scenario("User sorts the PLP's products by price in descending order @desktop", 
   // pause()
 });
 
-Scenario('User adds/removes items from cart @desktop', async ({ I, headerPage, productListPage }) => {
+Scenario('At PLP, user adds/removes items from cart @desktop', async ({ I, headerPage, productListPage }) => {
   headerPage.isLoaded();
   productListPage.isLoaded();
 
