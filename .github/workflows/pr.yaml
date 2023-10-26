@@ -91,6 +91,7 @@ jobs:
         run: time npm run test:desktop:chrome:workers
 
   cleanup:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:      
       - name: Cleanup
