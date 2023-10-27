@@ -1,6 +1,6 @@
 const I = actor();
 
-class CheckoutPage {
+class CheckoutInfoPage {
   #root: CodeceptJS.Locator = locate('div#contents_wrapper > div.checkout_info_container');
 
   constructor() { }
@@ -10,4 +10,4 @@ class CheckoutPage {
   }
 }
 
-export = new CheckoutPage();
+export = new CheckoutInfoPage();

@@ -34,7 +34,7 @@ export const config: CodeceptJS.MainConfig = {
     productListPage: './pages/productListPage.ts',
     productDetailPage: './pages/productDetailPage.ts',
     cartPage: './pages/cartPage.ts',
-    checkoutPage: './pages/checkoutPage.ts',
+    checkoutInfoPage: './pages/checkoutInfoPage.ts',
     checkoutOverviewPage: './pages/checkoutOverviewPage.ts',
     checkoutCompletePage: './pages/checkoutCompletePage.ts',
   },
