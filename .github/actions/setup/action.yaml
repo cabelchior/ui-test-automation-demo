@@ -15,10 +15,10 @@ runs:
       with:
         node-version-file: ${{ inputs.framework-path }}/.nvmrc
 
-      - name: Install dependencies
-        uses: bahmutov/npm-install@v1
-        with:
-          working-directory: ${{ inputs.framework-path }}
+    - name: Install dependencies
+      uses: bahmutov/npm-install@v1
+      with:
+        working-directory: ${{ inputs.framework-path }}
 
     - name: Cache playwright binaries
       uses: actions/cache@v3
