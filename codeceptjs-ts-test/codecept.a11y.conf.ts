@@ -3,9 +3,9 @@ import { showBrowser, baseUrl } from './utils/config_constants';
 import { browserType, setBrowser, setEmulator } from './utils/profile';
 
 export const config: CodeceptJS.MainConfig = {
-  tests: './functional-tests/**/*_test.ts',
+  tests: './a11y-tests/*_test.ts',
   output: './output',
-  grep: '(?=.*)^(?!.*@a11y)',
+  grep: '@a11y',
   helpers: {
     Playwright: {
       browser: setBrowser as browserType,
@@ -13,19 +13,20 @@ export const config: CodeceptJS.MainConfig = {
       show: showBrowser,
       url: baseUrl,
       // waitForAction: 500,
-      restart: 'keep',         // in windowed mode.
-      keepBrowserState: false, // in windowed mode.
-      keepCookies: false,      // in windowed mode.
+      // restart: 'keep',         // in windowed mode.
+      // keepBrowserState: false, // in windowed mode.
+      // keepCookies: false,      // in windowed mode.
     },
-    REST: {
-      endpoint: baseUrl
-    },
-    JSONResponse: { },
     ChaiWrapper: {
       require: 'codeceptjs-chai',
     },
     CustomHelper: {
       require: './helpers/CustomHelper.ts',
+    },
+    A11yHelper: {
+      require: 'codeceptjs-a11y-helper',
+      detailedReportOptions: { html: true }, 
+      skipFailures: showBrowser, // If you pass skipFailures=false, test would fail if violations found and there is no HTML report generated.
     },
   },
   include: {

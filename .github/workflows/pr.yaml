@@ -35,37 +35,13 @@ jobs:
         with:
           framework-path: './codeceptjs-ts-test'
 
-      # - name: Setup node
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version-file: './codeceptjs-ts-test/.nvmrc'
-
-      # - name: Install dependencies
-      #   uses: bahmutov/npm-install@v1
-      #   with:
-      #     working-directory: ./codeceptjs-ts-test
-
-      # - name: Cache playwright binaries
-      #   uses: actions/cache@v3
-      #   id: playwright-cache
-      #   with:
-      #     path: |
-      #       ~/.cache/ms-playwright
-      #     key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
-
-      # - name: Install Playwright
-      #   shell: bash
-      #   working-directory: ./codeceptjs-ts-test
-      #   run: npx playwright install
-      #   if: steps.playwright-cache.outputs.cache-hit != 'true'
-
-      # - name: Install Playwright dependencies
-      #   shell: bash
-      #   working-directory: ./codeceptjs-ts-test
-      #   run: npx playwright install-deps
-      #   if: steps.playwright-cache.outputs.cache-hit != 'true'
-
       - name: Test desktop:chrome
         shell: bash
         working-directory: ./codeceptjs-ts-test
         run: time npm run test:desktop:chrome:workers
+
+      - name: Test A11y in CodeceptJS
+        shell: bash
+        working-directory: ./codeceptjs-ts-test
+        run: time npm run test:a11y:CI
+        continue-on-error: true

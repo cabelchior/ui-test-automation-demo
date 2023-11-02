@@ -1,37 +1,22 @@
 /// <reference types='codeceptjs' />
 type steps_file = typeof import('./steps_file');
+type loginPage = typeof import('./pages/loginPage');
+type headerPage = typeof import('./pages/headerPage');
+type productListPage = typeof import('./pages/productListPage');
+type productDetailPage = typeof import('./pages/productDetailPage');
+type cartPage = typeof import('./pages/cartPage');
+type checkoutInfoPage = typeof import('./pages/checkoutInfoPage');
+type checkoutOverviewPage = typeof import('./pages/checkoutOverviewPage');
+type checkoutCompletePage = typeof import('./pages/checkoutCompletePage');
 type ChaiWrapper = import('codeceptjs-chai');
 type CustomHelper = import('./helpers/CustomHelper');
-type LoginPage = typeof import('./pages/loginPage');
-type HeaderPage = typeof import('./pages/headerPage');
-type ProductListPage = typeof import('./pages/productListPage');
-type ProductDetailPage = typeof import('./pages/productDetailPage');
-type CartPage = typeof import('./pages/cartPage');
-type CheckoutInfoPage = typeof import('./pages/checkoutInfoPage');
-type CheckoutOverviewPage = typeof import('./pages/checkoutOverviewPage');
-type CheckoutCompletePage = typeof import('./pages/checkoutCompletePage');
+type A11yHelper = import('codeceptjs-a11y-helper');
 
 declare namespace CodeceptJS {
-  interface SupportObject {
-    I: I;
-    current: any;
-    loginPage: LoginPage;
-    headerPage: HeaderPage;
-    productListPage: ProductListPage;
-    productDetailPage: ProductDetailPage;
-    cartPage: CartPage;
-    checkoutInfoPage: CheckoutInfoPage;
-    checkoutOverviewPage: CheckoutOverviewPage;
-    checkoutCompletePage: CheckoutCompletePage;
-  }
-
-  interface Methods extends Playwright, JSONResponse, REST, ChaiWrapper, CustomHelper {}
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface I extends WithTranslation<Methods> {}
-
+  interface SupportObject { I: I, current: any, loginPage: loginPage, headerPage: headerPage, productListPage: productListPage, productDetailPage: productDetailPage, cartPage: cartPage, checkoutInfoPage: checkoutInfoPage, checkoutOverviewPage: checkoutOverviewPage, checkoutCompletePage: checkoutCompletePage }
+  interface Methods extends Playwright, REST, JSONResponse, ChaiWrapper, CustomHelper, A11yHelper {}
+  interface I extends ReturnType<steps_file>, WithTranslation<Methods> {}
   namespace Translation {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
     interface Actions {}
   }
 }

@@ -44,3 +44,13 @@ To execute the functional tests run one of the the below command in root folder:
 | `npm run test:desktop:chrome:workers` | Run tests in parallel |
 
 > **_NOTE_:** In order to isolate a run for a specific test, we should add the @wip tag in that particular test scenario.
+
+
+## WIP
+https://codecept.io/best/#configuration
+
+https://medium.com/bear-plus/accessibility-testing-with-codeceptjs-playwright-and-axe-a72e726b6291
+https://socket.dev/npm/package/codeceptjs-a11y-helper
+https://www.npmjs.com/package/axe-playwright
+
+
