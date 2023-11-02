@@ -10,13 +10,13 @@ jobs:
     name: Playwright
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
       - name: Setup Repo
         uses: ./.github/actions/setup
         with:
           framework-path: './playwright-test'
-
-      # - name: Checkout repository
-      #   uses: actions/checkout@v3
 
       # - name: Setup node
       #   uses: actions/setup-node@v3

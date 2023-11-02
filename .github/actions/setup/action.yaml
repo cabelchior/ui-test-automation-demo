@@ -10,10 +10,7 @@ runs:
   using: composite
 
   steps:
-  - name: Checkout repository
-    uses: actions/checkout@v3
-
-  - name: Setup node
-    uses: actions/setup-node@v3
-    with:
-      node-version-file: 'inputs.framework/.nvmrc'    
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: 'inputs.framework/.nvmrc'    
