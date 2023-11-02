@@ -13,4 +13,4 @@ runs:
     - name: Setup node
       uses: actions/setup-node@v3
       with:
-        node-version-file: 'inputs.framework-path/.nvmrc'    
+        node-version-file: ${{ inputs.framework-path/.nvmrc }}  
