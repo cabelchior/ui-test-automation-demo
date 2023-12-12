@@ -1,4 +1,4 @@
-Feature('UI automation testcases - product listing page of saucedemo.com'); //, { retryBefore: 2 });
+Feature('Product listing page'); //, { retryBefore: 2 });
 
 /*** Feature Global Variables ***/
 
@@ -22,7 +22,7 @@ Scenario('The PLP has all the requided sections @desktop', async ({ I, productLi
   const itemCount = await productListPage.grabNumberOfItems();
   for (let i = 1; i < itemCount; i++) {
     const item = productListPage.grabItemAtIndex(i);
-    item.waitForRequiredElements();
+    item.seeAllRequiredElements();
   }
 
   // pause()
@@ -96,7 +96,7 @@ Scenario("User sorts the PLP's products by price in descending order @desktop", 
   // pause()
 });
 
-Scenario('User adds/removes items from cart @desktop', async ({ I, headerPage, productListPage }) => {
+Scenario('At PLP, user adds/removes items from cart @desktop', async ({ I, headerPage, productListPage }) => {
   headerPage.isLoaded();
   productListPage.isLoaded();
 
@@ -128,12 +128,4 @@ Scenario("Verify that each product's image link is not broken @desktop", async (
   }
 
   // pause()
-});
-
-Scenario.todo("Verify that each product link properly redirects to its associated PDP @desktop", async ({ I }) => {
-  pause();
-});
-
-Scenario.todo("Verify that each product's PLP price matches its PDP price @desktop", async ({ I }) => {
-  pause();
 });

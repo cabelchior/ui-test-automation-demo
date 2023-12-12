@@ -14,7 +14,7 @@ const config: PlaywrightTestConfig = {
   fullyParallel: process.env.CI ? true : false,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? undefined : 1,
+  workers: process.env.CI ? undefined : 2,
   reporter: 'list',//'html',
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */

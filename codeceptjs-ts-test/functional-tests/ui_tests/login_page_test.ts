@@ -1,4 +1,4 @@
-Feature('@wip UI automation testcases - login page of saucedemo.com'); //, { retryBefore: 2 });
+Feature('Login page'); //, { retryBefore: 2 });
 
 /*** Feature Global Variables ***/
 

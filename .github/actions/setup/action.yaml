@@ -1,0 +1,41 @@
+name: Setup Repo
+description: Setups up correct node version and installs dependencies
+
+inputs:
+  framework-path:
+    required: true
+    type: string
+
+runs:
+  using: composite
+
+  steps:
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: ${{ inputs.framework-path }}/.nvmrc
+
+    - name: Install dependencies
+      uses: bahmutov/npm-install@v1
+      with:
+        working-directory: ${{ inputs.framework-path }}
+
+    - name: Cache playwright binaries
+      uses: actions/cache@v3
+      id: playwright-cache
+      with:
+        path: |
+          ~/.cache/ms-playwright
+        key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Install Playwright
+      shell: bash
+      working-directory: ${{ inputs.framework-path }}
+      run: npx playwright install
+      if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+    - name: Install Playwright dependencies
+      shell: bash
+      working-directory: ${{ inputs.framework-path }}
+      run: npx playwright install-deps
+      if: steps.playwright-cache.outputs.cache-hit != 'true'
